@@ -1,0 +1,16 @@
+  
+CREATE TABLE posts
+(
+  id SERIAL PRIMARY KEY,
+  title VARCHAR (100) NOT NULL,
+  image_url VARCHAR (500) NOT NULL,
+  content VARCHAR (500)
+);
+
+
+CREATE TABLE userS
+(
+  id SERIAL PRIMARY KEY,
+  username VARCHAR (100) NOT NULL,
+  password VARCHAR (100) NOT NULL
+);
