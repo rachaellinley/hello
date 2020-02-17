@@ -1,14 +1,14 @@
 
 async function addPost (req, res){
-    const { title, img, content} = req.body;
-    const user_id = req.session.user.user_id;
-  
-    const db = req.app.get("db");
-  
-    await db.posts.addPost([title, img, content]);
-    const userPosts = await req.app.get('db').posts.userPosts([req.session.user.user_id]);
-    // console.log(addedPost)
-    res.status(200).json(userPosts);
+  const { title, img, content} = req.body;
+  const user_id = req.session.user.user_id;
+
+  const db = req.app.get("db");
+
+  await db.posts.addPost([  title, img, content, user_id]);
+  const userPosts = await req.app.get('db').posts.userPosts([req.session.user.user_id]);
+  // console.log(addedPosts)
+  res.status(200).json(userPosts);
 }
 async function allPosts(req, res){
     const db = req.app.get("db");

@@ -7,7 +7,7 @@ const app = express();
 
 //controllers
 const ac = require("./controllers/authController");
-const rc = require("./controllers/postsController");
+const pc = require("./controllers/postsController");
 
 //dotenv
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
@@ -36,7 +36,7 @@ app.use(session({
 const {user, registerUser, loginUser, logout} = ac;
 
 //posts controller
-const { addPost, getAllPosts, getPostById, editPost} = pc; 
+const { addPost, getAllPosts, getPostById, editPost, userPosts} = pc; 
 
 //auth endpoints
 app.get("/auth/user", user);
@@ -49,6 +49,7 @@ app.get("/api/posts", getAllPosts);
 app.get("/api/post/:post_id", getPostById);
 app.post("/api/posts", addPost);
 app.put("/api/posts/:post_id", editPost)
+app.get("/api/posts/profile", userPosts)
 
 
 
