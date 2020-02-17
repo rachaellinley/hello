@@ -1,13 +1,30 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import Login from "../Login/Login";
+import Register from "../Register/Register";
 
-class Guestlanding extends Component {
-  render() {
+
+
+class GuestLanding extends Component {
+    constructor () {
+        super();
+        this.state = {
+            
+        }
+    }
+
+render() {
     return (
-      <div>
-        <h1>Guest Landing </h1>
-      </div>
-    );
-  }
+        <div>
+            
+                
+            <Login />
+        
+            <Register />
+     
+          
+        </div>
+    )
+}
 }
 
-export default Guestlanding;
+export default GuestLanding;

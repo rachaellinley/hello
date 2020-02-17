@@ -7,7 +7,7 @@ const app = express();
 
 //controllers
 const ac = require("./controllers/authController");
-// const rc = require("./controllers/postsController");
+const rc = require("./controllers/postsController");
 
 //dotenv
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env;
@@ -35,8 +35,8 @@ app.use(session({
 //authentication controller 
 const {user, registerUser, loginUser, logout} = ac;
 
-//reviews controller
-// const { addReview, allReviews, deleteReview, editReview, userReviews} = rc; 
+//posts controller
+const { addPost, getAllPosts, getPostById, editPost} = pc; 
 
 //auth endpoints
 app.get("/auth/user", user);
@@ -46,9 +46,10 @@ app.get("/auth/logout", logout);
 
 //posts endpoints
 app.get("/api/posts", getAllPosts);
-app.get("/api/posts/userposts", getPostsByTitle);
 app.get("/api/post/:post_id", getPostById);
 app.post("/api/posts", addPost);
+app.put("/api/posts/:post_id", editPost)
+
 
 
 app.listen(SERVER_PORT, () => {

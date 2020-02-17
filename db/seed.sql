@@ -8,9 +8,10 @@ CREATE TABLE posts
 );
 
 
-CREATE TABLE userS
+CREATE TABLE users
 (
   id SERIAL PRIMARY KEY,
   username VARCHAR (100) NOT NULL,
-  password VARCHAR (100) NOT NULL
+  hash text NOT NULL
 );
+
