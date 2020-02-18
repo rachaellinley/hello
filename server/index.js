@@ -48,7 +48,9 @@ app.get("/auth/logout", logout);
 app.get("/api/posts", getAllPosts);
 app.get("/api/post/:post_id", getPostById);
 app.post("/api/posts", addPost);
-app.put("/api/posts/:post_id", editPost)
+//
+app.put(`/api/posts?post_id=${post_id}`, editPost);
+// app.put("/api/posts/:post_id", editPost)
 app.get("/api/posts/profile", userPosts)
 
 

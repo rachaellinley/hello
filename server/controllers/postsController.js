@@ -19,8 +19,10 @@ async function allPosts(req, res){
 
 
   async function editPost(req, res) {
-    const { category_name, brand, product, content } = req.body;
-    const post_id = +req.params.post_id;
+    const { title, img, content } = req.body;
+    // const post_id = +req.params.post_id;
+    //
+    const {post_id} = req.query
     const user_id = req.session.user.user_id;
     console.log(user_id);
     console.log(typeof user_id)
@@ -29,9 +31,8 @@ async function allPosts(req, res){
     const db = req.app.get("db");
   
     const editedPost = await db.posts.editPost([
-      category_name,
-      brand,
-      product,
+      title,
+      img,
       content,
       post_id,
       user_id

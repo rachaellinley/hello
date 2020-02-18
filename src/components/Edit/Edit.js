@@ -59,6 +59,6 @@ const mapStateToProps = reduxState => {
   }
   
   export default connect(mapStateToProps, {
-    EditPost,
+    editPost,
     getSession
   })(Edit)
